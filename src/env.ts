@@ -4,7 +4,6 @@ import { z } from "zod";
 const EnvSchema = z.object({
   NODE_ENV: z.string().default("development"),
   DATABASE_URL: z.string().url(),
-  DATABASE_AUTH_TOKEN: z.string().optional(),
   GOOGLE_CLIENT_ID: z.string().optional(),
   GOOGLE_CLIENT_SECRET: z.string().optional(),
   BETTER_AUTH_SECRET: z.string().optional(),
