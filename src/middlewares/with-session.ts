@@ -6,10 +6,16 @@ const withSession: MiddlewareHandler<AppBindings> = async (c, next) => {
   const auth = createAuth(c.env);
   const session = await auth.api.getSession({ headers: c.req.raw.headers });
 
-  c.set('user', session?.user ?? null);
-  c.set('session', session?.session ?? null);
+  if (!session) {
+    c.set("user", null);
+    c.set("session", null);
+    return next();
+  }
 
-  await next();
+  c.set("user", session.user);
+  c.set("session", session.session);
+
+  return next();
 };
 
 export default withSession;
