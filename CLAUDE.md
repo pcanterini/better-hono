@@ -89,3 +89,8 @@ src/
 2. **Error Handling**: Throw HTTPException for proper error responses
 3. **Type Safety**: Leverage generated types from database and Cloudflare
 4. **Migrations**: Always use migrations for schema changes, never direct pushes in production
+
+## Memories and Notes
+
+### Authentication and Authorization
+- For auth related tasks we use better-auth and you can check @llms.txt for reference before implementing or changing any features/tasks
